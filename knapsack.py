@@ -16,11 +16,12 @@ def main():
         items.append(itemTuple(cost,weight))
     printTuple(items)
     print("Result: ",knapsack(capacity)," Time taken for 10000 iterations:˜",timeit.timeit('knapsack(10)', globals=globals(), number = 10000))
+    print(knapsack.cache_info())
 
 @lru_cache()
 def knapsack(capacity,startFrom=0):
     if(startFrom==len(items)):
-        return 0;
+        return 0
 
     costIfPicked,costIfLeft = 0,0
     #if item is picked
