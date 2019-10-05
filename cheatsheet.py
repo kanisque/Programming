@@ -2,7 +2,7 @@
 
 #LISTS
 squares = [x*x for x in range(1,11)]
-new_squares = squares[:] #that's how you copy or else it returns a pointer i.e. changes in new list will affect the original
+new_squares = squares[:] #that's how you shallow copy or else it returns a pointer i.e. changes in new list will affect the original
 #print(squares[from:to:step])
 #squares.remove(36)#del squares[4]
 #print(sorted(squares,reverse=True))
