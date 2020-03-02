@@ -53,7 +53,21 @@ class node():
 		
 		newNode.nextNode = head.nextNode
 		head.nextNode = newNode
+
 		return self
+
+	def reverse(self):
+		back = None
+		front = None 
+		curr = self 
+
+		while(curr):
+			front = curr.nextNode
+			curr.nextNode = back
+			back = curr
+			curr = front
+		return back
+
 	def printList(self,name="HEAD"):
 		head = self
 		print(name,": ",end="")
@@ -72,11 +86,13 @@ def main():
 	print("Finding element 150:",firstLList.findNode(150))
 	print("Length",firstLList.length())
 	firstLList.printList(name="Original")
-	firstLList = firstLList.addNodeAfter( firstLList.findNode(20) ,"Unexpected")
-	firstLList.printList(name="addNodeAfter 20")
-	firstLList = firstLList.deleteNode(20)
-	firstLList.printList(name="deleteNode 20")
+	# firstLList = firstLList.addNodeAfter( firstLList.findNode(20) ,"Unexpected")
+	# firstLList.printList(name="addNodeAfter 20")
+	# firstLList = firstLList.deleteNode(20)
+	# firstLList.printList(name="deleteNode 20")
 
+	reversedLL = firstLList.reverse()
+	reversedLL.printList(name="Reversed")
 
 	print("Length",firstLList.length())
 	'''

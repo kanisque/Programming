@@ -6,6 +6,8 @@
 
 def prefixFunc(pattern):
     prefixArray = [0] * len(pattern)
+    if len(pattern) < 2:
+        return [0]
     prefixCounter = 0
     prefixPointer = 1
     for index,char in enumerate(pattern):
@@ -25,6 +27,11 @@ def prefixFunc(pattern):
 # print(prefixFunc('aaaaaaa'))
 
 def kmpMatching(text,pattern):
+    if len(text) == 0:
+        if len(pattern) == 0:
+            return 0
+        else:
+            return -1
     index = 0
     pointer = 0
     prefixArray = prefixFunc(pattern)
@@ -45,6 +52,10 @@ def kmpMatching(text,pattern):
     else:
         return -1
         
+print(kmpMatching('',''))
+print(kmpMatching('','a'))
+print(kmpMatching('a','a'))
+print(kmpMatching('babba','bbb'))
 print(kmpMatching('cdabab','abab'))
 print(kmpMatching('cdabab','ababc'))
 print(kmpMatching('bacbabababacaca','ababaca'))
