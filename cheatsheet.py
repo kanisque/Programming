@@ -1,16 +1,23 @@
 #Python 3 cheat sheet, Dated: 23rd Oct 2017
 
-#LISTS
+# ------ LISTS ------- #
+abc=[]
+for num in range(1,11):
+	abc.append(num*num)
+# print(abc)
+squares = [None] * len(abc)
+# print(squares)
 squares = [x*x for x in range(1,11)]
+# print(squares)
 new_squares = squares[:] #that's how you shallow copy or else it returns a pointer i.e. changes in new list will affect the original
-#print(squares[from:to:step])
-#squares.remove(36)#del squares[4]
-#print(sorted(squares,reverse=True))
-#squares.sort(reverse=True)
-#print(squares)
-#squares.reverse()
-#print(squares)
-#print(squares,file=open("output.txt","w"))# w to overwrite, a to append, r by default to read
+# print(squares[from:to:step])
+squares.remove(36)#del squares[4]
+# print(sorted(squares,reverse=True))
+squares.sort(reverse=True)
+# print(squares)
+squares.reverse()
+# print(squares)
+# print(squares,file=open("output.txt","w"))# w to overwrite, a to append, r by default to read
 
 #FILE INPUT
 b = open("output.txt").read()
@@ -18,8 +25,8 @@ b = open("output.txt").read()
 
 #FILE OUTPUT 
 filename="new_out.txt"
-with open(filename,'w') as file:
-	file.write("This is how you write to files.")
+# with open(filename,'w') as file:
+# 	file.write("This is how you write to files.")
 
 #DICTIONARY
 mydict = {'a':1,'b':2,'c':3} #mydict = dict(a=1,b=2,c=3) #same thing

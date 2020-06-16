@@ -22,20 +22,25 @@
 import copy
 
 def main():
-	sudoku = [[3, 0, 6, 5, 0, 8, 4, 0, 0], [5, 2, 0, 0, 0, 0, 0, 0, 0],
-			  [0, 8, 7, 0, 0, 0, 0, 3, 1], [0, 0, 3, 0, 1, 0, 0, 8, 0],
-			  [9, 0, 0, 8, 6, 3, 0, 0, 5], [0, 5, 0, 0, 9, 0, 6, 0, 0],
-			  [1, 3, 0, 0, 0, 0, 2, 5, 0], [0, 0, 0, 0, 0, 0, 0, 7, 4],
-			  [0, 0, 5, 2, 0, 6, 3, 0, 0]]
+	sudoku = [	[0, 0, 0, 0, 0, 0, 0, 6, 3],
+				[0, 3, 0, 0, 0, 0, 0, 5, 0],
+			  	[0, 0, 0, 0, 3, 5, 0, 0, 0],
+			   	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			  	[0, 5, 3, 8, 0, 0, 0, 0, 0],
+			   	[0, 0, 0, 5, 0, 0, 3, 0, 1],
+			  	[0, 0, 0, 2, 5, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 7, 0],
+			  	[0, 4, 2, 0, 1, 0, 0, 0, 0]]
 
 	printSudoku(sudoku)
-	
 	sudoku = ultimateSudokuSolver(sudoku)
 	
 	if sudoku:
 		printSudoku(sudoku)
-	
+
+
 def ultimateSudokuSolver(sudoku):
+	# trying to solve without any guesses
 	sudoku = solveSudoku(sudoku)
 	if isFinished(sudoku) and isSolved(sudoku):
 			return(sudoku)
@@ -50,6 +55,7 @@ def ultimateSudokuSolver(sudoku):
 				return guessedSudoku
 			print("Guess",i,"at",key,"Failed! LOL")
 		return False	
+
 
 def getBestGuess(possiblityDict):
 	currMin = 100
@@ -90,12 +96,8 @@ def solveSudoku(sudoku):
 		
 		for key in list(possiblityDict):
 			if len(possiblityDict.get(key)) == 1:
-				print("Inserting",
-					  possiblityDict.get(key)[0], "at",
-					  int(key) // 10,
-					  int(key) % 10)
-				sudoku[int(key) // 10][int(key) %
-									   10] = possiblityDict.get(key)[0]
+				print("Inserting",possiblityDict.get(key)[0], "at",int(key) // 10,int(key) % 10)
+				sudoku[int(key) // 10][int(key) % 10] = possiblityDict.get(key)[0]
 				del possiblityDict[key]
 				change = True
 		print(

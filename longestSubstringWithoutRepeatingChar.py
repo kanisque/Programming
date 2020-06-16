@@ -4,7 +4,6 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
-
         if len(s) < 2:
             return(len(s))
         charMap = [None] * 100

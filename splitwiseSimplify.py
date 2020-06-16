@@ -23,13 +23,7 @@ def getMax(arr):
         if (arr[i] > arr[maxInd]): 
             maxInd = i 
     return maxInd 
-  
-# A utility function to 
-# return minimum of 2 values 
-def minOf2(x, y): 
-  
-    return x if x < y else y 
-  
+
 # amount[p] indicates the net amount to 
 # be credited/debited to/from person 'p' 
 # If amount[p] is positive, then i'th  
@@ -55,12 +49,12 @@ def minCashFlowRec(amount):
         return 0
   
     # Find the minimum of two amounts 
-    min = minOf2(-amount[mxDebit], amount[mxCredit]) 
-    amount[mxCredit] -=min
-    amount[mxDebit] += min
+    minAmount = min(-amount[mxDebit], amount[mxCredit]) 
+    amount[mxCredit] -=minAmount
+    amount[mxDebit] += minAmount
   
     # If minimum is the maximum amount to be 
-    print("Person " , mxDebit , " pays " , min
+    print("Person " , mxDebit , " pays " , minAmount
         , " to " , "Person " , mxCredit) 
   
     # Recur for the amount array. Note that 

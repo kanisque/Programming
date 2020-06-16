@@ -4,12 +4,16 @@ from queue import Queue
 
 print_lock = threading.Lock()
 
+staticVar = 0
+
 def exampleJob(worker):
 	time.sleep(0.5)
 	with print_lock:
 		print(threading.current_thread().name,worker)
 
 def threader():
+	print(staticVar)
+	staticVar+=1
 	while True:
 		worker=q.get()
 		exampleJob(worker)
